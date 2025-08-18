@@ -24,7 +24,7 @@ jobs:
       - name: Build Docker containers
         run: docker compose build
 
-      - name: Run Migrations
+      - name: Run Migration
         run: docker compose run --rm app sh -c "python manage.py migrate --noinput"
 
       - name: Run Tests
