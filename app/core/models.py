@@ -15,9 +15,9 @@ from django.contrib.auth.models import (
 class UserManager(BaseUserManager):
     """Managers for users"""
 
-    def create_user(self, email, password=None, **extra_field):
+    def create_user(self, email, password=None, **extra_fields):
         """ "Create, Save and Return user"""
-        user = self.model(email, **extra_field)
+        user = self.model(email=email, **extra_fields)
         # hash password
         user.set_password(password)
         # saving user, using part is for supporting multiple database if

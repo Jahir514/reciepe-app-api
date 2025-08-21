@@ -1,8 +1,21 @@
-
 [flake8]
-max-line-length = 120
+# --- General settings ---
+max-line-length = 100
+extend-ignore = 
+    E203,  # Whitespace before ':' (conflicts with Black)
+    W503   # Line break before binary operator (conflicts with Black)
+
+# --- Exclude files/folders from linting ---
 exclude =
-    migrations,
+    */migrations/*,
     __pycache__,
+    .venv,
+    .git,
+    .mypy_cache,
+    .pytest_cache,
     manage.py,
     settings.py
+
+# --- Per-file ignores (extra safety) ---
+per-file-ignores =
+    */migrations/*.py: ALL
